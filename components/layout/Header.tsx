@@ -1,22 +1,35 @@
 'use client';
 
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { MapPin, Search } from 'lucide-react';
 import { OfflineIndicator } from './OfflineIndicator';
 
 export function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
   return (
-    <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 md:hidden">
+    <header className={`sticky top-0 z-30 md:hidden transition-colors duration-200 ${isHome ? 'bg-transparent absolute w-full' : 'bg-white/95 backdrop-blur-md border-b border-coconut-dark'}`}>
       <OfflineIndicator />
       <div className="flex items-center justify-between h-14 px-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isHome ? 'bg-white/20 backdrop-blur-sm' : 'bg-gradient-to-br from-primary to-secondary'}`}>
             <MapPin size={18} className="text-white" />
           </div>
-          <span className="font-display font-bold text-charcoal text-lg">
-            Roat&aacute;n Insiders
+          <span className={`font-display font-bold text-lg ${isHome ? 'text-white' : 'text-charcoal'}`}>
+            Insiders
           </span>
         </Link>
+        {!isHome && (
+          <Link
+            href="/search"
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-coconut transition-colors duration-200"
+            aria-label="Search"
+          >
+            <Search size={20} className="text-driftwood" />
+          </Link>
+        )}
       </div>
     </header>
   );

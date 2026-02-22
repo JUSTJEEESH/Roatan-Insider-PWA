@@ -50,6 +50,13 @@ export function formatPhone(phone: string): string {
   return phone.replace(/[^\d+]/g, '');
 }
 
+export function formatAreaName(area: string): string {
+  return area
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 export function getDistanceKm(
   lat1: number,
   lon1: number,
