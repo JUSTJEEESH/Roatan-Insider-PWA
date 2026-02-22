@@ -1,0 +1,63 @@
+{
+  "slug": "coxen-hole",
+  "title": "Coxen Hole (Town Center) Cruise Port Guide",
+  "type": "cruise",
+  "port": "Town Center / Coxen Hole",
+  "description": "Complete guide for cruise passengers docking at the Town Center port in Coxen Hole, Roatán. Transport options, itineraries, and local tips.",
+  "content": {
+    "overview": "The Town Center port is located in Coxen Hole, the capital of Roatán. It's the older of the two cruise ports and drops you right into the main commercial district. While less polished than Mahogany Bay, it's closer to authentic island life and gives you faster access to the local market and taxi hub for exploring the whole island.",
+    "transportation": [
+      {
+        "type": "Taxi to West Bay Beach",
+        "description": "The most common route. Licensed taxis line up outside the port. The drive to West Bay Beach takes 20-25 minutes along the main road. Always agree on the price before you get in.",
+        "estimatedCost": "$15-20 per vehicle"
+      },
+      {
+        "type": "Taxi to West End",
+        "description": "Similar route, slightly shorter. West End is the dive village with more budget-friendly options.",
+        "estimatedCost": "$12-18 per vehicle"
+      },
+      {
+        "type": "Colectivo (Public Minibus)",
+        "description": "Adventurous option: local minibuses run along the main road. Cheap but crowded and no fixed schedule. Flag one down on the main road outside the port.",
+        "estimatedCost": "$2-3 per person"
+      }
+    ],
+    "itineraries": [
+      {
+        "name": "Best of the West",
+        "duration": "6 hours",
+        "difficulty": "Easy",
+        "estimatedCost": "$45-75 per person",
+        "steps": [
+          "Taxi from Coxen Hole to West Bay Beach (25 min, ~$15-20)",
+          "Beach time with snorkel gear rental (2 hours, ~$10-15)",
+          "Walk to a beachfront restaurant for lunch (1 hour, ~$15-25)",
+          "Taxi or walk to West End for shopping and exploring (30 min)",
+          "Browse local shops and art galleries in West End (1 hour)",
+          "Taxi back to Coxen Hole port (20 min — leave 45 min buffer)"
+        ]
+      },
+      {
+        "name": "Local Culture & Seafood",
+        "duration": "5 hours",
+        "difficulty": "Easy",
+        "estimatedCost": "$30-50 per person",
+        "steps": [
+          "Walk through Coxen Hole town center and market (45 min, free)",
+          "Try baleadas at a local stand near the market (~$2-3)",
+          "Taxi to French Harbour for fresh seafood lunch (20 min, ~$15-25)",
+          "Visit Arch's Iguana Farm (1 hour, ~$10 entry)",
+          "Taxi back to Coxen Hole port (20 min — leave 30 min buffer)"
+        ]
+      }
+    ],
+    "tips": [
+      "Coxen Hole is the real Roatán — busy, local, and unpolished. Keep valuables secure and stay aware of your surroundings.",
+      "The municipal market is worth a quick walkthrough for local crafts and fruit, but aggressive vendors can be off-putting. A polite 'no gracias' works fine.",
+      "ATMs are available in Coxen Hole if you need Lempiras, though USD is accepted almost everywhere tourists go.",
+      "Book tours and taxis through your cruise ship's recommended providers or reputable online operators for the best experience.",
+      "The walk from the port to town is short but the sidewalks are narrow. Watch for traffic."
+    ]
+  }
+}

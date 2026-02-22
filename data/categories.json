@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Eat",
+    "slug": "eat",
+    "icon": "UtensilsCrossed",
+    "color": "#E85D4A",
+    "description": "Restaurants, cafes, food trucks, and local baleada stands",
+    "displayOrder": 1,
+    "subcategories": ["Fine Dining", "Casual", "Seafood", "Local/Baleadas", "International", "Cafes", "Food Trucks"]
+  },
+  {
+    "name": "Drink",
+    "slug": "drink",
+    "icon": "Wine",
+    "color": "#9B59B6",
+    "description": "Beach bars, sports bars, cocktail lounges, and breweries",
+    "displayOrder": 2,
+    "subcategories": ["Beach Bars", "Sports Bars", "Cocktail Lounges", "Breweries", "Happy Hours"]
+  },
+  {
+    "name": "Dive & Snorkel",
+    "slug": "dive",
+    "icon": "Waves",
+    "color": "#2196F3",
+    "description": "PADI centers, snorkel tours, freediving, and equipment rental",
+    "displayOrder": 3,
+    "subcategories": ["PADI Centers", "Snorkel Tours", "Freediving", "Equipment Rental"]
+  },
+  {
+    "name": "Tours & Activities",
+    "slug": "tours",
+    "icon": "Compass",
+    "color": "#4CAF50",
+    "description": "Island tours, boat trips, zip-lining, ATV, fishing, and more",
+    "displayOrder": 4,
+    "subcategories": ["Island Tours", "Boat Tours", "Zip-lining", "ATV", "Cultural", "Wildlife", "Fishing"]
+  },
+  {
+    "name": "Shop",
+    "slug": "shop",
+    "icon": "ShoppingBag",
+    "color": "#FF9800",
+    "description": "Souvenirs, local crafts, art galleries, groceries, and cigars",
+    "displayOrder": 5,
+    "subcategories": ["Souvenirs", "Local Crafts", "Art Galleries", "Groceries", "Cigars"]
+  },
+  {
+    "name": "Stay",
+    "slug": "stay",
+    "icon": "Bed",
+    "color": "#795548",
+    "description": "Resorts, hotels, vacation rentals, hostels, and eco-lodges",
+    "displayOrder": 6,
+    "subcategories": ["Resorts", "Hotels", "Vacation Rentals", "Hostels", "Eco-Lodges"]
+  },
+  {
+    "name": "Rentals",
+    "slug": "rentals",
+    "icon": "Key",
+    "color": "#607D8B",
+    "description": "Cars, scooters, ATVs, golf carts, kayaks, and paddleboards",
+    "displayOrder": 7,
+    "subcategories": ["Cars", "Scooters", "ATVs", "Golf Carts", "Kayaks", "Paddleboards"]
+  },
+  {
+    "name": "Transport",
+    "slug": "transport",
+    "icon": "Car",
+    "color": "#FFC107",
+    "description": "Taxis, water taxis, tuk-tuks, airport shuttles, and ferries",
+    "displayOrder": 8,
+    "subcategories": ["Taxis", "Water Taxis", "Tuk-Tuks", "Airport Shuttles", "Ferries"]
+  },
+  {
+    "name": "Beaches",
+    "slug": "beaches",
+    "icon": "Umbrella",
+    "color": "#00BCD4",
+    "description": "Public beaches, private beaches, snorkel spots, and hidden gems",
+    "displayOrder": 9,
+    "subcategories": ["Public Beaches", "Private Beaches", "Snorkel Beaches", "Hidden Gems"]
+  }
+]
