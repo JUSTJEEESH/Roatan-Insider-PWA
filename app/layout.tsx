@@ -58,7 +58,7 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col md:flex-row">
           <Header />
           <BottomNav />
-          <main className="flex-1 pb-20 md:pb-0 md:ml-20 lg:ml-56">
+          <main className="flex-1 pb-20 md:pb-0 md:ml-20 lg:ml-60">
             {children}
           </main>
         </div>
