@@ -14,17 +14,17 @@ export default function ToolsPage() {
   const [activeTab, setActiveTab] = useState<ToolTab>('converter');
 
   return (
-    <div className="px-4 py-6 md:py-8">
+    <div className="px-6 py-8 md:py-12">
       <div className="max-w-xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal mb-1">
+        <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-1">
           Travel Tools
         </h1>
-        <p className="text-sm text-driftwood font-body mb-5">
+        <p className="text-sm text-gray-400 font-body mb-8">
           Works offline — no internet needed.
         </p>
 
         {/* Tab Switcher */}
-        <div className="flex gap-2 mb-6" role="tablist">
+        <div className="flex gap-2 mb-8" role="tablist">
           <button
             role="tab"
             aria-selected={activeTab === 'converter'}
@@ -32,8 +32,8 @@ export default function ToolsPage() {
             className={cn(
               'flex-1 flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] rounded-card text-sm font-body font-medium transition-all',
               activeTab === 'converter'
-                ? 'bg-primary text-white shadow-card'
-                : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                ? 'bg-gray-900 text-white'
+                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
             )}
           >
             <ArrowRightLeft size={18} />
@@ -46,8 +46,8 @@ export default function ToolsPage() {
             className={cn(
               'flex-1 flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] rounded-card text-sm font-body font-medium transition-all',
               activeTab === 'tipcalc'
-                ? 'bg-primary text-white shadow-card'
-                : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                ? 'bg-gray-900 text-white'
+                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
             )}
           >
             <Calculator size={18} />
@@ -58,11 +58,11 @@ export default function ToolsPage() {
         {/* Tool Content */}
         <div role="tabpanel">
           {activeTab === 'converter' && (
-            <div className="space-y-8">
-              <div className="bg-white rounded-card shadow-card p-5">
-                <h2 className="text-lg font-display font-semibold text-charcoal mb-4">
+            <div className="space-y-10">
+              <div>
+                <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-5">
                   Currency Converter
-                </h2>
+                </p>
                 <CurrencyConverter />
               </div>
               <WhatThingsCost />
@@ -70,11 +70,11 @@ export default function ToolsPage() {
           )}
 
           {activeTab === 'tipcalc' && (
-            <div className="space-y-8">
-              <div className="bg-white rounded-card shadow-card p-5">
-                <h2 className="text-lg font-display font-semibold text-charcoal mb-4">
+            <div className="space-y-10">
+              <div>
+                <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-5">
                   Tip Calculator
-                </h2>
+                </p>
                 <TipCalculator />
               </div>
               <TippingGuide />

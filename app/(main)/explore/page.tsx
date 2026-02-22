@@ -19,30 +19,30 @@ export default function ExplorePage() {
   const popular = getPopularBusinesses();
 
   return (
-    <div className="px-4 py-6 md:py-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="px-6 py-8 md:py-12">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal">
+        <div className="mb-10">
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900">
             Explore Roat&aacute;n
           </h1>
-          <p className="mt-1.5 text-driftwood font-body text-sm md:text-base">
+          <p className="mt-2 text-gray-400 font-body text-sm">
             Browse by category to discover the best of the island.
           </p>
         </div>
 
         {/* Category Grid */}
-        <section className="mb-10">
+        <section className="mb-16">
           <CategoryGrid />
         </section>
 
         {/* Popular Section */}
         {popular.length > 0 && (
           <section>
-            <h2 className="text-lg md:text-xl font-display font-bold text-charcoal mb-4">
+            <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-6">
               Popular Right Now
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {popular.map((business) => (
                 <BusinessCard key={business.id} business={business} />
               ))}

@@ -7,7 +7,6 @@ import {
   Phone,
   Globe,
   Clock,
-  Star,
   Heart,
   MessageCircle,
   Navigation,
@@ -19,7 +18,6 @@ import type { Business } from '@/lib/types';
 import { getBusinessBySlug } from '@/lib/data';
 import { CATEGORIES, AREAS } from '@/lib/constants';
 import { formatPriceRange, isOpenNow, formatAreaName, formatPhone, cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/Badge';
 import { useFavoritesStore } from '@/store/favorites';
 
 function formatHour(time: string): string {
@@ -48,9 +46,9 @@ export function ListingContent({ slug }: ListingContentProps) {
 
   if (!business) {
     return (
-      <div className="px-4 py-16 text-center">
-        <h1 className="text-2xl font-display font-bold text-charcoal mb-2">Not Found</h1>
-        <p className="text-driftwood font-body mb-4">This listing could not be found.</p>
+      <div className="px-6 py-24 text-center">
+        <h1 className="text-2xl font-display font-bold text-gray-900 mb-2">Not Found</h1>
+        <p className="text-gray-500 font-body mb-6">This listing could not be found.</p>
         <Link href="/explore" className="text-primary hover:underline font-body">Browse all listings</Link>
       </div>
     );
@@ -67,15 +65,13 @@ export function ListingContent({ slug }: ListingContentProps) {
   };
 
   return (
-    <div className="pb-8">
+    <div className="pb-12">
       <div className="max-w-2xl mx-auto">
-        <div className="h-56 md:h-72 bg-gradient-to-br from-coconut-dark via-sand-dark to-coconut relative">
-          {category && (
-            <div className="absolute bottom-0 left-0 right-0 h-1.5" style={{ backgroundColor: category.color }} />
-          )}
+        {/* Hero Image — tall and immersive */}
+        <div className="h-72 md:h-[50vh] bg-gradient-to-br from-gray-200 via-gray-100 to-gray-50 relative">
           <Link
             href={`/explore/${business.category}`}
-            className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-charcoal hover:bg-white transition-colors shadow-sm"
+            className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center text-gray-600 hover:bg-white transition-colors"
             aria-label="Go back"
           >
             <ArrowLeft size={20} />
@@ -84,102 +80,99 @@ export function ListingContent({ slug }: ListingContentProps) {
             onClick={handleToggleFavorite}
             className={cn(
               'absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center',
-              'transition-all duration-200 backdrop-blur-sm shadow-sm',
-              saved ? 'bg-coral text-white' : 'bg-white/80 text-driftwood hover:bg-white hover:text-coral'
+              'transition-all duration-200',
+              saved ? 'bg-gray-900 text-white' : 'bg-white/90 text-gray-400 hover:text-gray-600'
             )}
             aria-label={saved ? 'Remove from saved' : 'Save this place'}
           >
             <Heart size={20} fill={saved ? 'currentColor' : 'none'} />
           </button>
-          {business.isFeatured && (
-            <Badge variant="featured" className="absolute bottom-4 left-4 z-10 shadow-sm">Featured</Badge>
-          )}
         </div>
 
-        <div className="px-4 pt-4">
+        <div className="px-6 pt-6">
+          {/* Title + Price */}
           <div className="flex items-start justify-between gap-3">
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal">{business.name}</h1>
-            <span className="text-lg text-driftwood font-body flex-shrink-0">{formatPriceRange(business.priceRange)}</span>
+            <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900">{business.name}</h1>
+            <span className="text-lg text-gray-400 font-body flex-shrink-0">{formatPriceRange(business.priceRange)}</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 mt-2">
-            {category && <Badge variant="category" color={category.color}>{category.name}</Badge>}
-            <Badge variant="default" className="text-xs">{business.subcategory}</Badge>
-            <Badge variant={openNow ? 'status' : 'default'}>
-              <Clock size={12} className="mr-1" />{openNow ? 'Open Now' : 'Closed'}
-            </Badge>
-            {business.isVerified && (
-              <Badge variant="default"><Star size={12} className="mr-1" />Verified</Badge>
-            )}
-          </div>
+          {/* Subtle metadata — text only, no badges */}
+          <p className="text-sm text-gray-400 mt-2">
+            {category?.name} &middot; {business.subcategory} &middot; {openNow ? 'Open now' : 'Closed'}
+          </p>
 
-          <p className="mt-4 text-driftwood font-body leading-relaxed">{business.description}</p>
+          {/* Description */}
+          <p className="mt-6 text-gray-600 font-body leading-relaxed">{business.description}</p>
 
+          {/* Insider Tip — left border accent */}
           {business.insiderTip && (
-            <div className="mt-4 p-4 bg-gold/10 border border-gold/20 rounded-card">
-              <p className="text-sm font-semibold text-charcoal font-display mb-1">Insider Tip</p>
-              <p className="text-sm text-driftwood font-body leading-relaxed">{business.insiderTip}</p>
+            <div className="mt-6 border-l-2 border-primary pl-5 py-1">
+              <p className="text-sm font-medium text-gray-900 mb-1">Insider Tip</p>
+              <p className="text-sm text-gray-600 font-body leading-relaxed">{business.insiderTip}</p>
             </div>
           )}
 
-          <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {/* Contact buttons — outline style */}
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {business.phone && (
-              <a href={`tel:${formatPhone(business.phone)}`} className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button bg-primary text-white text-sm font-body font-medium hover:bg-primary-dark transition-colors">
+              <a href={`tel:${formatPhone(business.phone)}`} className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors">
                 <Phone size={16} />Call
               </a>
             )}
             {business.whatsapp && (
-              <a href={`https://wa.me/${formatPhone(business.whatsapp)}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button bg-green-500 text-white text-sm font-body font-medium hover:bg-green-600 transition-colors">
+              <a href={`https://wa.me/${formatPhone(business.whatsapp)}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors">
                 <MessageCircle size={16} />WhatsApp
               </a>
             )}
             {business.website && (
-              <a href={business.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button bg-secondary text-white text-sm font-body font-medium hover:bg-secondary-dark transition-colors">
+              <a href={business.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors">
                 <Globe size={16} />Website
               </a>
             )}
-            <a href={`geo:${business.latitude},${business.longitude}?q=${encodeURIComponent(business.name)}`} className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button bg-accent text-white text-sm font-body font-medium hover:bg-accent-dark transition-colors">
+            <a href={`geo:${business.latitude},${business.longitude}?q=${encodeURIComponent(business.name)}`} className="flex items-center justify-center gap-2 px-3 py-3 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors">
               <Navigation size={16} />Directions
             </a>
           </div>
 
-          <div className="mt-6 space-y-3">
-            <h2 className="text-lg font-display font-semibold text-charcoal">Location & Contact</h2>
-            <div className="flex items-start gap-3 text-sm text-driftwood font-body">
-              <MapPin size={18} className="flex-shrink-0 text-primary mt-0.5" />
+          {/* Location & Contact */}
+          <div className="mt-10 space-y-4">
+            <p className="text-sm uppercase tracking-widest text-gray-400 font-medium">Location & Contact</p>
+            <div className="flex items-start gap-3 text-sm text-gray-600 font-body">
+              <MapPin size={18} className="flex-shrink-0 text-gray-400 mt-0.5" />
               <div>
                 <p>{business.addressDescription}</p>
-                <p className="text-driftwood-light mt-0.5">
+                <p className="text-gray-400 mt-0.5">
                   {formatAreaName(business.area)}{area && ` — ${area.vibe}`}
                 </p>
               </div>
             </div>
             {business.email && (
-              <a href={`mailto:${business.email}`} className="flex items-center gap-3 text-sm text-secondary hover:text-primary transition-colors">
+              <a href={`mailto:${business.email}`} className="flex items-center gap-3 text-sm text-gray-500 hover:text-gray-900 transition-colors">
                 <Mail size={18} className="flex-shrink-0" /><span className="font-body">{business.email}</span>
               </a>
             )}
             {business.facebook && (
-              <a href={`https://facebook.com/${business.facebook}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-secondary hover:text-primary transition-colors">
+              <a href={`https://facebook.com/${business.facebook}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-500 hover:text-gray-900 transition-colors">
                 <Facebook size={18} className="flex-shrink-0" /><span className="font-body">{business.facebook}</span>
               </a>
             )}
             {business.instagram && (
-              <a href={`https://instagram.com/${business.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-secondary hover:text-primary transition-colors">
+              <a href={`https://instagram.com/${business.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-500 hover:text-gray-900 transition-colors">
                 <Instagram size={18} className="flex-shrink-0" /><span className="font-body">{business.instagram}</span>
               </a>
             )}
           </div>
 
-          <div className="mt-6">
-            <h2 className="text-lg font-display font-semibold text-charcoal mb-3">Hours</h2>
-            <div className="bg-coconut rounded-card p-4 space-y-1.5">
+          {/* Hours */}
+          <div className="mt-10">
+            <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">Hours</p>
+            <div className="bg-gray-50 rounded-card p-5 space-y-2">
               {DAY_NAMES.map((day) => {
                 const hours = business.hours[day];
                 const today = DAY_NAMES[new Date().getDay() === 0 ? 6 : new Date().getDay() - 1];
                 const isToday = day === today;
                 return (
-                  <div key={day} className={cn('flex justify-between text-sm font-body', isToday ? 'text-primary font-semibold' : 'text-driftwood')}>
+                  <div key={day} className={cn('flex justify-between text-sm font-body', isToday ? 'text-gray-900 font-medium' : 'text-gray-500')}>
                     <span>{DAY_LABELS[day]}{isToday && ' (today)'}</span>
                     <span>{hours ? `${formatHour(hours.open)} — ${formatHour(hours.close)}` : 'Closed'}</span>
                   </div>
@@ -188,24 +181,28 @@ export function ListingContent({ slug }: ListingContentProps) {
             </div>
           </div>
 
+          {/* Features */}
           {business.features.length > 0 && (
-            <div className="mt-6">
-              <h2 className="text-lg font-display font-semibold text-charcoal mb-3">Features</h2>
+            <div className="mt-10">
+              <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">Features</p>
               <div className="flex flex-wrap gap-2">
                 {business.features.map((feature) => (
-                  <Badge key={feature} variant="default" className="text-sm">{feature}</Badge>
+                  <span key={feature} className="inline-flex items-center px-3 py-1 rounded-pill text-sm font-body bg-gray-100 text-gray-600">
+                    {feature}
+                  </span>
                 ))}
               </div>
             </div>
           )}
 
-          <div className="mt-6">
-            <Link href={`/map?business=${business.slug}`} className="block bg-seafoam rounded-card p-4 hover:bg-seafoam-dark transition-colors">
+          {/* Map Link */}
+          <div className="mt-10">
+            <Link href={`/map?business=${business.slug}`} className="block bg-gray-50 border border-gray-100 rounded-card p-5 hover:bg-gray-100 transition-colors">
               <div className="flex items-center gap-3">
-                <MapPin size={24} className="text-primary" />
+                <MapPin size={24} className="text-gray-400" />
                 <div>
-                  <p className="font-body font-medium text-charcoal text-sm">View on Map</p>
-                  <p className="text-xs text-driftwood font-body">{business.latitude.toFixed(4)}, {business.longitude.toFixed(4)}</p>
+                  <p className="font-body font-medium text-gray-900 text-sm">View on Map</p>
+                  <p className="text-xs text-gray-400 font-body">{business.latitude.toFixed(4)}, {business.longitude.toFixed(4)}</p>
                 </div>
               </div>
             </Link>

@@ -9,8 +9,8 @@ export function Card({ className, hoverable = false, children, ...props }: CardP
   return (
     <div
       className={cn(
-        'bg-coconut rounded-card shadow-card',
-        hoverable && 'transition-shadow duration-200 hover:shadow-card-hover cursor-pointer',
+        'bg-white rounded-card border border-gray-100',
+        hoverable && 'transition-all duration-200 hover:shadow-card-hover cursor-pointer',
         className
       )}
       {...props}

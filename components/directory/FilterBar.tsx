@@ -24,8 +24,8 @@ export function FilterBar({ options, selected, onSelect }: FilterBarProps) {
           'px-3 py-1.5 rounded-pill text-sm font-body font-medium whitespace-nowrap min-h-[36px]',
           'transition-colors duration-200',
           selected === null
-            ? 'bg-primary text-white'
-            : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+            ? 'bg-gray-900 text-white'
+            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
         )}
       >
         All
@@ -42,8 +42,8 @@ export function FilterBar({ options, selected, onSelect }: FilterBarProps) {
             'px-3 py-1.5 rounded-pill text-sm font-body font-medium whitespace-nowrap min-h-[36px]',
             'transition-colors duration-200',
             selected === option.value
-              ? 'bg-primary text-white'
-              : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+              ? 'bg-gray-900 text-white'
+              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
           )}
         >
           {option.label}
