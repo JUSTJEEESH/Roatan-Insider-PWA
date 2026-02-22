@@ -17,33 +17,30 @@ export default function SavedPage() {
   );
 
   return (
-    <div className="px-4 py-6 md:py-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-center gap-3 mb-6">
-          <Heart size={24} className="text-coral" />
-          <div>
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal">
-              Saved Places
-            </h1>
-            <p className="text-sm text-driftwood font-body">
-              {savedBusinesses.length} {savedBusinesses.length === 1 ? 'place' : 'places'} saved
-            </p>
-          </div>
+    <div className="px-6 py-8 md:py-12">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900">
+            Saved Places
+          </h1>
+          <p className="text-sm text-gray-400 font-body mt-1">
+            {savedBusinesses.length} {savedBusinesses.length === 1 ? 'place' : 'places'} saved
+          </p>
         </div>
 
         {savedBusinesses.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {savedBusinesses.map((business) => (
               <BusinessCard key={business.id} business={business} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-16">
-            <Heart size={48} className="mx-auto text-coconut-dark mb-4" />
-            <h2 className="text-lg font-display font-semibold text-charcoal mb-2">
+          <div className="text-center py-20">
+            <Heart size={48} className="mx-auto text-gray-200 mb-4" />
+            <h2 className="text-lg font-body font-medium text-gray-900 mb-2">
               No saved spots yet
             </h2>
-            <p className="text-sm text-driftwood font-body mb-6 max-w-sm mx-auto">
+            <p className="text-sm text-gray-400 font-body mb-8 max-w-sm mx-auto">
               Tap the heart icon on any listing to save it here for quick access — even offline.
             </p>
             <Link

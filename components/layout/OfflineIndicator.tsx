@@ -10,12 +10,12 @@ export function OfflineIndicator() {
 
   return (
     <div
-      className="bg-gold/10 border-b border-gold/20 px-4 py-2 flex items-center gap-2"
+      className="bg-gray-50 border-b border-gray-100 px-4 py-2 flex items-center gap-2"
       role="status"
       aria-live="polite"
     >
-      <WifiOff size={16} className="text-gold flex-shrink-0" />
-      <p className="text-sm text-driftwood font-body">
+      <WifiOff size={16} className="text-gray-400 flex-shrink-0" />
+      <p className="text-sm text-gray-500 font-body">
         You&apos;re offline &mdash; showing saved content
       </p>
     </div>

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Download, X } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 const DISMISS_KEY = 'install-prompt-dismissed-at';
 const VISIT_COUNT_KEY = 'install-prompt-visit-count';
@@ -21,24 +20,20 @@ export function InstallPrompt() {
   const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
-    // Check if dismissed within last 7 days
     const dismissedAt = localStorage.getItem(DISMISS_KEY);
     if (dismissedAt) {
       const elapsed = Date.now() - parseInt(dismissedAt, 10);
       if (elapsed < DISMISS_DURATION_MS) return;
     }
 
-    // Track visit count
     const visitCount = parseInt(localStorage.getItem(VISIT_COUNT_KEY) ?? '0', 10) + 1;
     localStorage.setItem(VISIT_COUNT_KEY, visitCount.toString());
 
-    // Show after 2nd visit immediately when prompt is available
     if (visitCount >= MIN_VISITS) {
       setShouldShow(true);
       return;
     }
 
-    // Otherwise show after 30 seconds of engagement
     const timer = setTimeout(() => setShouldShow(true), ENGAGEMENT_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
@@ -74,37 +69,38 @@ export function InstallPrompt() {
   return (
     <div className="fixed bottom-20 md:bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 z-50 bg-white rounded-card shadow-xl border border-gray-100 p-4 animate-fade-in">
       <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-card bg-seafoam flex items-center justify-center flex-shrink-0">
-          <Download size={20} className="text-primary" />
+        <div className="w-10 h-10 rounded-card bg-gray-100 flex items-center justify-center flex-shrink-0">
+          <Download size={20} className="text-gray-600" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-display font-semibold text-charcoal text-sm">
+          <p className="font-display font-semibold text-gray-900 text-sm">
             Install Roat&aacute;n Insiders
           </p>
-          <p className="text-xs text-driftwood mt-0.5 font-body">
+          <p className="text-xs text-gray-400 mt-0.5 font-body">
             Add to your home screen for offline access
           </p>
         </div>
         <button
           onClick={handleDismiss}
-          className="min-w-[44px] min-h-[44px] flex items-center justify-center text-driftwood-light hover:text-driftwood -mt-1 -mr-1"
+          className="min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-300 hover:text-gray-500 -mt-1 -mr-1"
           aria-label="Dismiss install prompt"
         >
           <X size={18} />
         </button>
       </div>
       <div className="mt-3 flex gap-2">
-        <Button size="sm" onClick={handleInstall} className="flex-1">
+        <button
+          onClick={handleInstall}
+          className="flex-1 px-3 py-2 text-sm font-body font-medium rounded-button bg-primary text-white hover:bg-primary-dark transition-colors min-h-[36px]"
+        >
           Install
-        </Button>
-        <Button
-          size="sm"
-          variant="ghost"
+        </button>
+        <button
           onClick={handleDismiss}
-          className="flex-1"
+          className="flex-1 px-3 py-2 text-sm font-body font-medium rounded-button text-gray-500 hover:bg-gray-50 transition-colors min-h-[36px]"
         >
           Not now
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -16,29 +16,29 @@ const COST_ITEMS = [
 export function WhatThingsCost() {
   return (
     <div>
-      <h3 className="text-base font-display font-semibold text-charcoal mb-3">
+      <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">
         What Things Cost
-      </h3>
+      </p>
       <div className="bg-white rounded-card overflow-hidden border border-gray-100">
         <table className="w-full text-sm font-body">
           <thead>
-            <tr className="bg-seafoam">
-              <th className="text-left px-3 py-2 text-charcoal font-medium">Item</th>
-              <th className="text-right px-3 py-2 text-charcoal font-medium">USD</th>
-              <th className="text-right px-3 py-2 text-charcoal font-medium">HNL</th>
+            <tr className="bg-gray-50">
+              <th className="text-left px-4 py-3 text-gray-500 font-medium text-xs uppercase tracking-wide">Item</th>
+              <th className="text-right px-4 py-3 text-gray-500 font-medium text-xs uppercase tracking-wide">USD</th>
+              <th className="text-right px-4 py-3 text-gray-500 font-medium text-xs uppercase tracking-wide">HNL</th>
             </tr>
           </thead>
           <tbody>
             {COST_ITEMS.map((row, i) => (
               <tr
                 key={row.item}
-                className={i % 2 === 0 ? 'bg-white' : 'bg-sand/50'}
+                className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}
               >
-                <td className="px-3 py-2 text-driftwood">{row.item}</td>
-                <td className="px-3 py-2 text-charcoal text-right whitespace-nowrap">
+                <td className="px-4 py-3 text-gray-600">{row.item}</td>
+                <td className="px-4 py-3 text-gray-900 text-right whitespace-nowrap">
                   {row.usd}
                 </td>
-                <td className="px-3 py-2 text-driftwood-light text-right whitespace-nowrap">
+                <td className="px-4 py-3 text-gray-400 text-right whitespace-nowrap">
                   {row.hnl}
                 </td>
               </tr>
@@ -46,7 +46,7 @@ export function WhatThingsCost() {
           </tbody>
         </table>
       </div>
-      <p className="text-[11px] text-driftwood-light font-body mt-2">
+      <p className="text-xs text-gray-400 font-body mt-3">
         Prices are approximate and may vary by location and season. USD is widely accepted.
       </p>
     </div>

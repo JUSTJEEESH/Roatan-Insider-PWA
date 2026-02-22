@@ -36,28 +36,28 @@ const TIPPING_RULES = [
 export function TippingGuide() {
   return (
     <div>
-      <h3 className="text-base font-display font-semibold text-charcoal mb-3">
+      <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">
         Tipping on Roat&aacute;n
-      </h3>
-      <div className="bg-seafoam rounded-card p-4">
-        <div className="flex items-start gap-2 mb-3">
-          <Info size={18} className="flex-shrink-0 text-primary mt-0.5" />
-          <p className="text-sm text-driftwood font-body leading-relaxed">
+      </p>
+      <div className="bg-gray-50 rounded-card p-5">
+        <div className="flex items-start gap-2 mb-4">
+          <Info size={18} className="flex-shrink-0 text-gray-400 mt-0.5" />
+          <p className="text-sm text-gray-500 font-body leading-relaxed">
             Tipping is appreciated but not as standardized as in the US. Cash tips in small USD bills are preferred. Lempira is fine too.
           </p>
         </div>
         <div className="space-y-3">
           {TIPPING_RULES.map((rule) => (
-            <div key={rule.service} className="bg-white rounded-button p-3">
+            <div key={rule.service} className="bg-white rounded-button p-4">
               <div className="flex items-baseline justify-between gap-2 mb-1">
-                <span className="font-body font-medium text-charcoal text-sm">
+                <span className="font-body font-medium text-gray-900 text-sm">
                   {rule.service}
                 </span>
-                <span className="font-body font-semibold text-primary text-sm whitespace-nowrap">
+                <span className="font-body font-semibold text-gray-900 text-sm whitespace-nowrap">
                   {rule.tip}
                 </span>
               </div>
-              <p className="text-xs text-driftwood font-body leading-relaxed">
+              <p className="text-xs text-gray-400 font-body leading-relaxed">
                 {rule.note}
               </p>
             </div>

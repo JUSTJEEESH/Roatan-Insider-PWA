@@ -14,60 +14,47 @@ export function BusinessDetail({ business }: BusinessDetailProps) {
 
   return (
     <article className="max-w-2xl mx-auto">
-      <div className="h-56 md:h-72 bg-coconut-dark rounded-card relative" />
+      <div className="h-72 md:h-[50vh] bg-gray-100 rounded-card relative" />
 
-      <div className="px-4 py-4">
+      <div className="px-6 py-6">
         <div className="flex items-start justify-between gap-3">
-          <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal">
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900">
             {business.name}
           </h1>
-          <span className="text-lg text-driftwood font-body">
+          <span className="text-lg text-gray-400 font-body">
             {formatPriceRange(business.priceRange)}
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 mt-2">
-          {category && (
-            <Badge variant="category" color={category.color}>
-              {category.name}
-            </Badge>
-          )}
-          <Badge variant={openNow ? 'status' : 'default'}>
-            <Clock size={12} className="mr-1" />
-            {openNow ? 'Open Now' : 'Closed'}
-          </Badge>
-          {business.isVerified && (
-            <Badge variant="default">
-              <Star size={12} className="mr-1" />
-              Verified
-            </Badge>
-          )}
-        </div>
+        <p className="text-sm text-gray-400 mt-2">
+          {category?.name} &middot; {openNow ? 'Open now' : 'Closed'}
+          {business.isVerified && ' &middot; Verified'}
+        </p>
 
-        <p className="mt-4 text-driftwood font-body leading-relaxed">
+        <p className="mt-6 text-gray-600 font-body leading-relaxed">
           {business.description}
         </p>
 
         {business.insiderTip && (
-          <div className="mt-4 p-3 bg-gold/10 border border-gold/20 rounded-button">
-            <p className="text-sm font-medium text-charcoal font-body">
+          <div className="mt-6 border-l-2 border-primary pl-5 py-1">
+            <p className="text-sm font-medium text-gray-900 font-body">
               Insider Tip
             </p>
-            <p className="text-sm text-driftwood mt-1 font-body">
+            <p className="text-sm text-gray-600 mt-1 font-body">
               {business.insiderTip}
             </p>
           </div>
         )}
 
-        <div className="mt-4 space-y-2">
-          <div className="flex items-center gap-2 text-sm text-driftwood">
-            <MapPin size={16} className="flex-shrink-0 text-primary" />
+        <div className="mt-6 space-y-3">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <MapPin size={16} className="flex-shrink-0 text-gray-400" />
             <span className="font-body">{business.addressDescription}</span>
           </div>
           {business.phone && (
             <a
               href={`tel:${business.phone}`}
-              className="flex items-center gap-2 text-sm text-secondary hover:text-primary"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               <Phone size={16} className="flex-shrink-0" />
               <span className="font-body">{business.phone}</span>
@@ -78,7 +65,7 @@ export function BusinessDetail({ business }: BusinessDetailProps) {
               href={business.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-secondary hover:text-primary"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               <Globe size={16} className="flex-shrink-0" />
               <span className="font-body">Website</span>
@@ -87,9 +74,9 @@ export function BusinessDetail({ business }: BusinessDetailProps) {
         </div>
 
         {business.features.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-6 flex flex-wrap gap-2">
             {business.features.map((feature) => (
-              <Badge key={feature} variant="default">
+              <Badge key={feature}>
                 {feature}
               </Badge>
             ))}

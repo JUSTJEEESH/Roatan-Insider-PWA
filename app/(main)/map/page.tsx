@@ -14,8 +14,8 @@ const MapView = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-full min-h-[400px] bg-seafoam flex items-center justify-center">
-        <p className="text-driftwood font-body text-sm">Loading map...</p>
+      <div className="w-full h-full min-h-[400px] bg-gray-50 flex items-center justify-center">
+        <p className="text-gray-400 font-body text-sm">Loading map...</p>
       </div>
     ),
   }
@@ -24,8 +24,8 @@ const MapView = dynamic(
 export default function MapPage() {
   return (
     <Suspense fallback={
-      <div className="flex items-center justify-center h-[calc(100vh-80px)] bg-seafoam">
-        <p className="text-driftwood font-body text-sm">Loading map...</p>
+      <div className="flex items-center justify-center h-[calc(100vh-80px)] bg-gray-50">
+        <p className="text-gray-400 font-body text-sm">Loading map...</p>
       </div>
     }>
       <MapPageContent />
@@ -78,8 +78,8 @@ function MapPageContent() {
             onClick={toggleAll}
             className={`flex-shrink-0 px-3 py-1.5 rounded-pill text-xs font-body font-medium transition-colors shadow-sm ${
               activeCategories.size === CATEGORIES.length
-                ? 'bg-primary text-white'
-                : 'bg-white text-driftwood hover:bg-coconut'
+                ? 'bg-gray-900 text-white'
+                : 'bg-white text-gray-500 hover:bg-gray-50'
             }`}
           >
             All
@@ -90,14 +90,9 @@ function MapPageContent() {
               onClick={() => toggleCategory(cat.slug)}
               className={`flex-shrink-0 px-3 py-1.5 rounded-pill text-xs font-body font-medium transition-colors shadow-sm ${
                 activeCategories.has(cat.slug)
-                  ? 'text-white'
-                  : 'bg-white text-driftwood hover:bg-coconut'
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-white text-gray-500 hover:bg-gray-50'
               }`}
-              style={
-                activeCategories.has(cat.slug)
-                  ? { backgroundColor: cat.color }
-                  : undefined
-              }
             >
               {cat.name}
             </button>
@@ -118,7 +113,7 @@ function MapPageContent() {
       {/* My Location button */}
       <button
         onClick={requestLocation}
-        className="absolute bottom-24 md:bottom-6 right-4 z-10 w-12 h-12 rounded-full bg-white shadow-card flex items-center justify-center text-primary hover:bg-seafoam transition-colors"
+        className="absolute bottom-24 md:bottom-6 right-4 z-10 w-12 h-12 rounded-full bg-white shadow-card-hover flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors"
         aria-label="Go to my location"
       >
         <Crosshair size={22} />
@@ -126,7 +121,7 @@ function MapPageContent() {
 
       {/* Business count */}
       <div className="absolute bottom-24 md:bottom-6 left-4 z-10">
-        <span className="bg-white/90 backdrop-blur-sm rounded-pill px-3 py-1.5 text-xs font-body text-driftwood shadow-sm">
+        <span className="bg-white/90 backdrop-blur-sm rounded-pill px-3 py-1.5 text-xs font-body text-gray-500 shadow-sm">
           {filtered.length} places shown
         </span>
       </div>

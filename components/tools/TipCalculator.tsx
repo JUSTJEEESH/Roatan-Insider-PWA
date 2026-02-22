@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { convertUsdToHnl } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const TIP_PRESETS = [10, 15, 18, 20];
@@ -20,7 +19,7 @@ export function TipCalculator() {
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-driftwood mb-1 font-body">
+        <label className="block text-sm font-medium text-gray-500 mb-1 font-body">
           Bill Amount (USD)
         </label>
         <input
@@ -29,32 +28,35 @@ export function TipCalculator() {
           value={billAmount}
           onChange={(e) => setBillAmount(e.target.value)}
           placeholder="0.00"
-          className="w-full px-4 py-2.5 min-h-[44px] rounded-button bg-white border border-gray-200 text-charcoal font-body text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          className="w-full px-4 py-2.5 min-h-[44px] rounded-button bg-white border border-gray-200 text-gray-900 font-body text-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
           aria-label="Bill amount in US Dollars"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-driftwood mb-1 font-body">
+        <label className="block text-sm font-medium text-gray-500 mb-1 font-body">
           Tip Percentage
         </label>
         <div className="flex gap-2">
           {TIP_PRESETS.map((pct) => (
-            <Button
+            <button
               key={pct}
-              size="sm"
-              variant={tipPercent === pct ? 'primary' : 'outline'}
               onClick={() => setTipPercent(pct)}
-              className="flex-1"
+              className={cn(
+                'flex-1 px-3 py-2 text-sm font-body font-medium rounded-button min-h-[36px] transition-colors',
+                tipPercent === pct
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+              )}
             >
               {pct}%
-            </Button>
+            </button>
           ))}
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-driftwood mb-1 font-body">
+        <label className="block text-sm font-medium text-gray-500 mb-1 font-body">
           Split Between
         </label>
         <div className="flex items-center gap-3">
@@ -63,47 +65,47 @@ export function TipCalculator() {
             className={cn(
               'min-w-[44px] min-h-[44px] rounded-button border border-gray-200 text-lg font-bold',
               'transition-colors',
-              splitCount <= 1 ? 'text-gray-300' : 'text-charcoal hover:bg-coconut'
+              splitCount <= 1 ? 'text-gray-300' : 'text-gray-900 hover:bg-gray-50'
             )}
             disabled={splitCount <= 1}
             aria-label="Decrease split count"
           >
             -
           </button>
-          <span className="text-lg font-body font-medium text-charcoal w-8 text-center">
+          <span className="text-lg font-body font-medium text-gray-900 w-8 text-center">
             {splitCount}
           </span>
           <button
             onClick={() => setSplitCount(splitCount + 1)}
-            className="min-w-[44px] min-h-[44px] rounded-button border border-gray-200 text-lg font-bold text-charcoal hover:bg-coconut transition-colors"
+            className="min-w-[44px] min-h-[44px] rounded-button border border-gray-200 text-lg font-bold text-gray-900 hover:bg-gray-50 transition-colors"
             aria-label="Increase split count"
           >
             +
           </button>
-          <span className="text-sm text-driftwood-light font-body">
+          <span className="text-sm text-gray-400 font-body">
             {splitCount === 1 ? 'person' : 'people'}
           </span>
         </div>
       </div>
 
       {bill > 0 && (
-        <div className="bg-seafoam rounded-card p-4 space-y-2">
+        <div className="bg-gray-50 rounded-card p-5 space-y-2">
           <div className="flex justify-between text-sm font-body">
-            <span className="text-driftwood">Tip</span>
-            <span className="text-charcoal font-medium">
+            <span className="text-gray-500">Tip</span>
+            <span className="text-gray-900 font-medium">
               ${tip.toFixed(2)} / L {convertUsdToHnl(tip).toFixed(0)}
             </span>
           </div>
           <div className="flex justify-between text-sm font-body">
-            <span className="text-driftwood">Total</span>
-            <span className="text-charcoal font-medium">
+            <span className="text-gray-500">Total</span>
+            <span className="text-gray-900 font-medium">
               ${total.toFixed(2)} / L {convertUsdToHnl(total).toFixed(0)}
             </span>
           </div>
           {splitCount > 1 && (
-            <div className="flex justify-between text-sm font-body border-t border-primary/10 pt-2">
-              <span className="text-driftwood font-medium">Per Person</span>
-              <span className="text-primary font-bold">
+            <div className="flex justify-between text-sm font-body border-t border-gray-200 pt-2">
+              <span className="text-gray-500 font-medium">Per Person</span>
+              <span className="text-gray-900 font-bold">
                 ${perPerson.toFixed(2)} / L {convertUsdToHnl(perPerson).toFixed(0)}
               </span>
             </div>

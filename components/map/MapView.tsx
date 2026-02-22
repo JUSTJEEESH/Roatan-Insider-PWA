@@ -14,7 +14,8 @@ import type { Business, Category } from '@/lib/types';
 import { CATEGORIES, MAP_CENTER, MAP_DEFAULT_ZOOM, MAP_MIN_ZOOM, MAP_MAX_ZOOM } from '@/lib/constants';
 import { formatPriceRange, formatAreaName } from '@/lib/utils';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/Badge';
+
+const MARKER_COLOR = '#374151'; // gray-700
 
 interface MapViewProps {
   businesses: Business[];
@@ -77,10 +78,9 @@ export function MapView({ businesses, userLat, userLng, focusSlug }: MapViewProp
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {/* Business markers */}
+      {/* Business markers — uniform dark gray */}
       {businesses.map((business) => {
         const cat = CATEGORIES.find((c) => c.slug === business.category);
-        const color = cat?.color ?? '#0C6478';
 
         return (
           <CircleMarker
@@ -88,8 +88,8 @@ export function MapView({ businesses, userLat, userLng, focusSlug }: MapViewProp
             center={[business.latitude, business.longitude]}
             radius={7}
             pathOptions={{
-              fillColor: color,
-              fillOpacity: 0.9,
+              fillColor: MARKER_COLOR,
+              fillOpacity: 0.85,
               color: '#ffffff',
               weight: 2,
               opacity: 1,
@@ -97,30 +97,27 @@ export function MapView({ businesses, userLat, userLng, focusSlug }: MapViewProp
           >
             <Popup>
               <div className="min-w-[200px] max-w-[240px]">
-                <div className="h-20 bg-gradient-to-br from-coconut-dark to-sand-dark rounded-t" />
+                <div className="h-20 bg-gradient-to-br from-gray-200 to-gray-100 rounded-t" />
                 <div className="p-2">
-                  <h3 className="font-semibold text-charcoal text-sm leading-tight">
+                  <h3 className="font-semibold text-gray-900 text-sm leading-tight">
                     {business.name}
                   </h3>
                   <div className="flex items-center gap-1.5 mt-1">
                     {cat && (
-                      <span
-                        className="inline-block text-[10px] px-1.5 py-0.5 rounded-pill text-white font-medium"
-                        style={{ backgroundColor: cat.color }}
-                      >
+                      <span className="inline-block text-[10px] px-1.5 py-0.5 rounded-pill bg-gray-100 text-gray-600 font-medium">
                         {cat.name}
                       </span>
                     )}
-                    <span className="text-xs text-driftwood">
+                    <span className="text-xs text-gray-400">
                       {formatPriceRange(business.priceRange)}
                     </span>
                   </div>
-                  <p className="text-[11px] text-driftwood mt-1">
+                  <p className="text-[11px] text-gray-400 mt-1">
                     {formatAreaName(business.area)}
                   </p>
                   <Link
                     href={`/listing/${business.slug}`}
-                    className="block mt-2 text-center text-xs font-medium text-primary bg-seafoam hover:bg-seafoam-dark rounded-button py-1.5 transition-colors"
+                    className="block mt-2 text-center text-xs font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-button py-1.5 transition-colors"
                   >
                     View Details
                   </Link>

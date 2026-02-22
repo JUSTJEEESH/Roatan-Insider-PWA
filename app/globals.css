@@ -10,15 +10,15 @@
   }
 
   body {
-    @apply bg-sand text-driftwood font-body;
+    @apply bg-white text-gray-600 font-body;
   }
 
   h1, h2 {
-    @apply font-display text-charcoal;
+    @apply font-display text-gray-900;
   }
 
   h3, h4, h5, h6 {
-    @apply font-body font-semibold text-charcoal;
+    @apply font-body font-medium text-gray-900;
   }
 
   /* Safe area padding for notched devices */
@@ -51,10 +51,10 @@
 .animate-shimmer {
   background: linear-gradient(
     90deg,
-    #E8DFD5 0%,
-    #F5F0EB 40%,
-    #F5F0EB 60%,
-    #E8DFD5 100%
+    #f3f4f6 0%,
+    #f9fafb 40%,
+    #f9fafb 60%,
+    #f3f4f6 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;

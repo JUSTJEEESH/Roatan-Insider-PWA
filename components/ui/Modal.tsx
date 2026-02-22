@@ -36,7 +36,7 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-charcoal/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -51,12 +51,12 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
       >
         {title && (
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-            <h2 className="text-lg font-display font-semibold text-charcoal">
+            <h2 className="text-lg font-display font-semibold text-gray-900">
               {title}
             </h2>
             <button
               onClick={onClose}
-              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-button text-driftwood hover:bg-coconut transition-colors"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-button text-gray-400 hover:bg-gray-50 transition-colors"
               aria-label="Close modal"
             >
               <X size={20} />

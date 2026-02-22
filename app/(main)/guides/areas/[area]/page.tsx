@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, Compass, Map } from 'lucide-react';
+import { ArrowLeft, Compass, Map } from 'lucide-react';
 import { AREAS } from '@/lib/constants';
 import { getAllBusinesses } from '@/lib/data';
 import { BusinessCard } from '@/components/directory/BusinessCard';
-import { Badge } from '@/components/ui/Badge';
 
 interface AreaGuidePageProps {
   params: { area: string };
@@ -33,8 +32,8 @@ export default function AreaGuidePage({ params }: AreaGuidePageProps) {
 
   if (!area) {
     return (
-      <div className="px-4 py-16 text-center">
-        <h1 className="text-2xl font-display font-bold text-charcoal mb-2">Area Not Found</h1>
+      <div className="px-6 py-24 text-center">
+        <h1 className="text-2xl font-display font-bold text-gray-900 mb-2">Area Not Found</h1>
         <Link href="/guides" className="text-primary hover:underline font-body">Back to Guides</Link>
       </div>
     );
@@ -45,63 +44,54 @@ export default function AreaGuidePage({ params }: AreaGuidePageProps) {
   const topPicks = featured.length > 0 ? featured.slice(0, 6) : businesses.slice(0, 6);
 
   return (
-    <div className="px-4 py-6 md:py-8">
-      <div className="max-w-3xl mx-auto">
-        {/* Back link */}
+    <div className="px-6 py-8 md:py-12">
+      <div className="max-w-5xl mx-auto">
         <Link
           href="/guides"
-          className="inline-flex items-center gap-1.5 text-sm text-driftwood hover:text-primary transition-colors mb-4"
+          className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-900 transition-colors mb-6"
         >
           <ArrowLeft size={16} />
           All guides
         </Link>
 
-        {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal">
+        <div className="mb-10">
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900">
             {area.name}
           </h1>
-          <Badge variant="category" color="#0E8B9E" className="mt-2">
-            {area.vibe}
-          </Badge>
-          <p className="text-sm text-driftwood font-body mt-3 leading-relaxed">
+          <p className="text-sm text-gray-500 font-body font-medium mt-1">{area.vibe}</p>
+          <p className="text-sm text-gray-500 font-body mt-3 leading-relaxed">
             {area.description}
           </p>
         </div>
 
         {/* Best For */}
-        <section className="mb-8">
-          <div className="bg-seafoam rounded-card p-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Compass size={18} className="text-primary" />
-              <h2 className="text-sm font-display font-semibold text-charcoal">
-                Best For
-              </h2>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
+        <section className="mb-10">
+          <div className="bg-gray-50 rounded-card p-5">
+            <p className="text-xs uppercase tracking-widest text-gray-400 font-medium mb-3">Best For</p>
+            <div className="flex flex-wrap gap-2">
               {area.bestFor.split(', ').map((tag) => (
-                <Badge key={tag} variant="default" className="text-xs">
+                <span key={tag} className="inline-flex items-center px-3 py-1 rounded-pill text-xs font-body bg-white text-gray-600">
                   {tag}
-                </Badge>
+                </span>
               ))}
             </div>
           </div>
         </section>
 
         {/* Map link */}
-        <section className="mb-8">
+        <section className="mb-10">
           <Link
-            href={`/map`}
-            className="flex items-center gap-3 bg-white rounded-card shadow-card p-4 hover:shadow-card-hover transition-all"
+            href="/map"
+            className="flex items-center gap-3 bg-white border border-gray-100 rounded-card p-5 hover:shadow-card-hover transition-all"
           >
-            <div className="w-10 h-10 rounded-full bg-seafoam flex items-center justify-center flex-shrink-0">
-              <Map size={20} className="text-primary" />
+            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+              <Map size={20} className="text-gray-500" />
             </div>
             <div>
-              <p className="font-body font-semibold text-charcoal text-sm">
+              <p className="font-body font-medium text-gray-900 text-sm">
                 View {area.name} on Map
               </p>
-              <p className="text-xs text-driftwood font-body">
+              <p className="text-xs text-gray-400 font-body">
                 See all businesses in this area
               </p>
             </div>
@@ -110,23 +100,20 @@ export default function AreaGuidePage({ params }: AreaGuidePageProps) {
 
         {/* Top Picks */}
         {topPicks.length > 0 && (
-          <section className="mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <MapPin size={18} className="text-primary" />
-              <h2 className="text-lg font-display font-semibold text-charcoal">
-                Top Picks in {area.name}
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section className="mb-10">
+            <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-6">
+              Top Picks in {area.name}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {topPicks.map((business) => (
                 <BusinessCard key={business.id} business={business} />
               ))}
             </div>
             {businesses.length > topPicks.length && (
-              <div className="mt-4 text-center">
+              <div className="mt-6 text-center">
                 <Link
-                  href={`/search`}
-                  className="text-sm text-primary hover:underline font-body"
+                  href="/search"
+                  className="text-sm text-gray-400 hover:text-gray-900 hover:underline font-body"
                 >
                   View all {businesses.length} listings in {area.name}
                 </Link>
@@ -136,25 +123,24 @@ export default function AreaGuidePage({ params }: AreaGuidePageProps) {
         )}
 
         {topPicks.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-driftwood font-body">
+          <div className="text-center py-16">
+            <p className="text-gray-400 font-body">
               No listings in {area.name} yet. Check back soon!
             </p>
           </div>
         )}
 
-        {/* Explore more */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
           <Link
             href="/explore"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-button bg-seafoam text-primary text-sm font-body font-medium hover:bg-seafoam-dark transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors"
           >
             <Compass size={16} />
             Explore All Categories
           </Link>
           <Link
             href="/guides"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-button bg-coconut text-driftwood text-sm font-body font-medium hover:bg-coconut-dark transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-button border border-gray-200 text-gray-700 text-sm font-body font-medium hover:bg-gray-50 transition-colors"
           >
             More Guides
           </Link>

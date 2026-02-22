@@ -42,63 +42,49 @@ export function CategoryContent({ category }: CategoryContentProps) {
   const hasActiveFilters = selectedSubcategory || selectedArea || selectedPrice || openNow;
 
   return (
-    <div className="px-4 py-6 md:py-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="px-6 py-8 md:py-12">
+      <div className="max-w-5xl mx-auto">
         <Link
           href="/explore"
-          className="inline-flex items-center gap-1.5 text-sm text-driftwood hover:text-primary transition-colors mb-4"
+          className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-900 transition-colors mb-6"
         >
           <ArrowLeft size={16} />
           All categories
         </Link>
 
-        <div className="mb-4">
-          <div className="flex items-center gap-3">
-            {cat && (
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: `${cat.color}15` }}
-              >
-                <div style={{ color: cat.color }} className="text-lg font-bold">
-                  {filtered.length}
-                </div>
-              </div>
-            )}
-            <div>
-              <h1 className="text-2xl md:text-3xl font-display font-bold text-charcoal capitalize">
-                {name}
-              </h1>
-              {cat && (
-                <p className="text-sm text-driftwood font-body mt-0.5">
-                  {cat.description}
-                </p>
-              )}
-            </div>
-          </div>
+        <div className="mb-6">
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-gray-900 capitalize">
+            {name}
+          </h1>
+          {cat && (
+            <p className="text-sm text-gray-400 font-body mt-1">
+              {cat.description}
+            </p>
+          )}
         </div>
 
-        <div className="mb-4 space-y-3">
+        <div className="mb-6 space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-button text-sm font-body transition-colors ${
                 showFilters || hasActiveFilters
-                  ? 'bg-primary text-white'
-                  : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
               aria-label="Toggle filters"
             >
               <SlidersHorizontal size={16} />
               Filters
-              {hasActiveFilters && <span className="w-2 h-2 rounded-full bg-gold" />}
+              {hasActiveFilters && <span className="w-2 h-2 rounded-full bg-white" />}
             </button>
 
             <button
               onClick={() => setOpenNow(!openNow)}
               className={`inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-button text-sm font-body transition-colors ${
                 openNow
-                  ? 'bg-green-500 text-white'
-                  : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                  ? 'bg-gray-900 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
               aria-label="Toggle open now filter"
             >
@@ -109,7 +95,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="ml-auto px-3 py-2 min-h-[44px] rounded-button bg-coconut text-sm text-driftwood font-body border-none focus:ring-2 focus:ring-primary"
+              className="ml-auto px-3 py-2 min-h-[44px] rounded-button bg-gray-50 text-sm text-gray-600 font-body border border-gray-200 focus:ring-2 focus:ring-gray-300 focus:outline-none"
               aria-label="Sort businesses"
             >
               <option value="featured">Featured</option>
@@ -121,15 +107,15 @@ export function CategoryContent({ category }: CategoryContentProps) {
           </div>
 
           {showFilters && (
-            <div className="bg-white rounded-card p-4 shadow-card space-y-3">
+            <div className="bg-gray-50 rounded-card p-5 space-y-4">
               {cat && cat.subcategories.length > 0 && (
                 <div>
-                  <p className="text-xs font-medium text-driftwood mb-2 font-body">Type</p>
+                  <p className="text-xs font-medium text-gray-400 mb-2 font-body uppercase tracking-wide">Type</p>
                   <div className="flex flex-wrap gap-1.5">
                     <button
                       onClick={() => setSelectedSubcategory(null)}
                       className={`px-2.5 py-1 rounded-pill text-xs font-body transition-colors ${
-                        !selectedSubcategory ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                        !selectedSubcategory ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                       }`}
                     >
                       All
@@ -139,7 +125,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
                         key={sub}
                         onClick={() => setSelectedSubcategory(selectedSubcategory === sub ? null : sub)}
                         className={`px-2.5 py-1 rounded-pill text-xs font-body transition-colors ${
-                          selectedSubcategory === sub ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                          selectedSubcategory === sub ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                         }`}
                       >
                         {sub}
@@ -150,12 +136,12 @@ export function CategoryContent({ category }: CategoryContentProps) {
               )}
 
               <div>
-                <p className="text-xs font-medium text-driftwood mb-2 font-body">Area</p>
+                <p className="text-xs font-medium text-gray-400 mb-2 font-body uppercase tracking-wide">Area</p>
                 <div className="flex flex-wrap gap-1.5">
                   <button
                     onClick={() => setSelectedArea(null)}
                     className={`px-2.5 py-1 rounded-pill text-xs font-body transition-colors ${
-                      !selectedArea ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                      !selectedArea ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                     }`}
                   >
                     All Areas
@@ -165,7 +151,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
                       key={area.slug}
                       onClick={() => setSelectedArea(selectedArea === area.slug ? null : area.slug)}
                       className={`px-2.5 py-1 rounded-pill text-xs font-body transition-colors ${
-                        selectedArea === area.slug ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                        selectedArea === area.slug ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                       }`}
                     >
                       {area.name}
@@ -175,12 +161,12 @@ export function CategoryContent({ category }: CategoryContentProps) {
               </div>
 
               <div>
-                <p className="text-xs font-medium text-driftwood mb-2 font-body">Price</p>
+                <p className="text-xs font-medium text-gray-400 mb-2 font-body uppercase tracking-wide">Price</p>
                 <div className="flex gap-1.5">
                   <button
                     onClick={() => setSelectedPrice(null)}
                     className={`px-3 py-1 rounded-pill text-xs font-body transition-colors ${
-                      !selectedPrice ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                      !selectedPrice ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                     }`}
                   >
                     Any
@@ -190,7 +176,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
                       key={p}
                       onClick={() => setSelectedPrice(selectedPrice === p ? null : p)}
                       className={`px-3 py-1 rounded-pill text-xs font-body transition-colors ${
-                        selectedPrice === p ? 'bg-primary text-white' : 'bg-coconut text-driftwood hover:bg-coconut-dark'
+                        selectedPrice === p ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-200'
                       }`}
                     >
                       {'$'.repeat(p)}
@@ -207,7 +193,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
                     setSelectedPrice(null);
                     setOpenNow(false);
                   }}
-                  className="text-xs text-coral font-body hover:underline"
+                  className="text-xs text-gray-400 font-body hover:text-gray-600 hover:underline"
                 >
                   Clear all filters
                 </button>
@@ -216,21 +202,21 @@ export function CategoryContent({ category }: CategoryContentProps) {
           )}
         </div>
 
-        <p className="text-sm text-driftwood font-body mb-4">
+        <p className="text-sm text-gray-400 font-body mb-6">
           {filtered.length} {filtered.length === 1 ? 'result' : 'results'}
           {hasActiveFilters && ' (filtered)'}
         </p>
 
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((business) => (
               <BusinessCard key={business.id} business={business} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-16">
-            <p className="text-driftwood font-body text-lg mb-2">No listings match your filters</p>
-            <p className="text-sm text-driftwood-light font-body">
+          <div className="text-center py-20">
+            <p className="text-gray-500 font-body text-lg mb-2">No listings match your filters</p>
+            <p className="text-sm text-gray-400 font-body">
               Try adjusting your filters or{' '}
               <button
                 onClick={() => {
@@ -239,7 +225,7 @@ export function CategoryContent({ category }: CategoryContentProps) {
                   setSelectedPrice(null);
                   setOpenNow(false);
                 }}
-                className="text-primary hover:underline"
+                className="text-gray-600 hover:underline"
               >
                 clear all filters
               </button>
