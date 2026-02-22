@@ -1,0 +1,100 @@
+{
+  "slug": "essentials",
+  "title": "Island Essentials",
+  "type": "essential",
+  "description": "Everything you need to know before visiting Roatán — money, safety, water, healthcare, connectivity, and practical tips.",
+  "content": {
+    "sections": [
+      {
+        "title": "Money & Payments",
+        "icon": "DollarSign",
+        "items": [
+          "USD is widely accepted in tourist areas. You don't need to exchange money for most things.",
+          "The local currency is Honduran Lempira (HNL). Roughly 1 USD = 25 HNL. Useful for markets and local buses.",
+          "ATMs are available in Coxen Hole, French Harbour, and West End. There are NO ATMs in West Bay.",
+          "Visa and Mastercard are accepted at most tourist businesses. Amex is rare.",
+          "Carry small US bills ($1, $5, $10). Many vendors can't break a $50 or $100.",
+          "Tip in cash when possible — some restaurants' card machines don't have a tip option."
+        ]
+      },
+      {
+        "title": "Safety",
+        "icon": "Shield",
+        "items": [
+          "Tourist areas (West Bay, West End, Sandy Bay) are generally safe during the day.",
+          "Exercise normal caution — don't flash expensive jewelry or electronics.",
+          "Avoid walking alone on dark roads at night, especially between West End and West Bay.",
+          "Use trusted taxi services. Ask your hotel or a local business for a recommendation.",
+          "Keep valuables in your hotel safe. Don't leave bags unattended on the beach.",
+          "Emergency number: 911 (limited response). Your hotel or resort is your best first contact."
+        ]
+      },
+      {
+        "title": "Water & Food Safety",
+        "icon": "Droplets",
+        "items": [
+          "Do NOT drink tap water. Bottled water is cheap and available everywhere.",
+          "Ice at tourist restaurants is typically made from purified water and is safe.",
+          "Street food and baleada stands are generally safe — look for busy, popular ones.",
+          "Seafood is incredibly fresh on Roatán. If it smells fishy, skip it — fresh fish doesn't smell."
+        ]
+      },
+      {
+        "title": "Sun & Reef Protection",
+        "icon": "Sun",
+        "items": [
+          "Wear reef-safe sunscreen. Chemical sunscreens damage the coral reef. Zinc-based is best.",
+          "The sun is intense — reapply every 2 hours, especially after swimming.",
+          "Rash guards are better than sunscreen for snorkeling. Most dive shops sell them.",
+          "Don't touch coral, sea turtles, or marine life. It's both illegal and harmful.",
+          "Sand flies (no-see-ums) are worst at dawn and dusk on the beach. Bug spray helps."
+        ]
+      },
+      {
+        "title": "Getting Around",
+        "icon": "Car",
+        "items": [
+          "Taxis are the most common transport. Always negotiate the price BEFORE getting in.",
+          "Tuk-tuks (motorized three-wheelers) are cheap for short rides: $2-3 per person.",
+          "Water taxis connect West Bay, West End, and other coastal points. Fun and scenic.",
+          "Rental cars are available but roads can be rough. Drive on the right. Watch for speed bumps.",
+          "There is no Uber or rideshare on Roatán.",
+          "The main road runs the length of the island. West Bay to French Harbour is about 30 minutes."
+        ]
+      },
+      {
+        "title": "Connectivity",
+        "icon": "Wifi",
+        "items": [
+          "WiFi is available at most hotels, restaurants, and cafes in tourist areas.",
+          "Signal drops frequently between towns. That's why this app works offline.",
+          "Local SIM cards (Tigo or Claro) are available at the airport and shops in Coxen Hole for ~$10 with data.",
+          "Coverage is decent in West Bay, West End, and Coxen Hole. Spotty everywhere else."
+        ]
+      },
+      {
+        "title": "Healthcare",
+        "icon": "Heart",
+        "items": [
+          "The public hospital is in Coxen Hole. Private clinics are in West End and French Harbour.",
+          "CEM (Centro de Especialidades Médicas) in French Harbour is the best private clinic on the island.",
+          "A hyperbaric chamber is available at Cornerstone Foundation in Sandy Bay for diving emergencies.",
+          "Pharmacies are available in Coxen Hole and French Harbour.",
+          "Travel insurance is strongly recommended. Medical evacuation to the mainland or US can be expensive."
+        ]
+      },
+      {
+        "title": "Tipping Guide",
+        "icon": "HandCoins",
+        "items": [
+          "Restaurants: 10-15% if service charge not included. Check your bill first.",
+          "Bars: $1-2 per drink, or round up.",
+          "Dive masters: $5-10 per dive is customary and appreciated.",
+          "Tour guides: $5-10 per person for a half-day tour.",
+          "Taxi drivers: Not expected, but rounding up is a nice gesture.",
+          "Hotel housekeeping: $1-2 per day left in the room."
+        ]
+      }
+    ]
+  }
+}

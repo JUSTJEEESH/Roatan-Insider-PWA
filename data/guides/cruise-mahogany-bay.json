@@ -1,0 +1,63 @@
+{
+  "slug": "mahogany-bay",
+  "title": "Mahogany Bay Cruise Port Guide",
+  "type": "cruise",
+  "port": "Mahogany Bay",
+  "description": "Everything you need to know for your day in Roatán arriving at Mahogany Bay cruise port. Pre-built itineraries, transport options, and insider tips.",
+  "content": {
+    "overview": "Mahogany Bay is Carnival Corporation's private cruise port on the south side of Roatán, just a short walk or shuttle ride from the famous West Bay Beach. It's the newer and more tourist-friendly of the two ports, with a small shopping village, chairlift to the beach, and easy access to the island's best attractions.",
+    "transportation": [
+      {
+        "type": "Beach Shuttle/Chairlift",
+        "description": "Carnival's chairlift takes you directly over the water to a private beach area. There's also a shuttle bus. Included with some cruise packages or available for a small fee.",
+        "estimatedCost": "$0-14 per person"
+      },
+      {
+        "type": "Taxi to West Bay Beach",
+        "description": "Licensed taxis wait outside the port gates. Negotiate the price before getting in. A ride to West Bay Beach takes about 10 minutes.",
+        "estimatedCost": "$8-12 per vehicle"
+      },
+      {
+        "type": "Water Taxi to West End",
+        "description": "Water taxis depart from the dock near the port and take you to West End village in about 15 minutes. A fun way to see the coastline.",
+        "estimatedCost": "$5-8 per person"
+      }
+    ],
+    "itineraries": [
+      {
+        "name": "Beach & Bites",
+        "duration": "6 hours",
+        "difficulty": "Easy",
+        "estimatedCost": "$30-55 per person",
+        "steps": [
+          "Walk or shuttle to West Bay Beach (15 min)",
+          "Beach time — rent chairs and snorkel gear (2.5 hours, ~$15)",
+          "Lunch at a beachfront restaurant (1 hour, ~$15-25)",
+          "Browse West Bay shops for souvenirs (45 min)",
+          "Optional: Snorkel at Blue Channel if time allows (45 min)",
+          "Return to port via shuttle (15 min — leave 30 min buffer)"
+        ]
+      },
+      {
+        "name": "Dive & Explore",
+        "duration": "6 hours",
+        "difficulty": "Moderate",
+        "estimatedCost": "$75-120 per person",
+        "steps": [
+          "Taxi to West End dive shop (15 min, pre-booked 2-tank dive)",
+          "Two-tank dive on the Mesoamerican Reef (3 hours, ~$75-85)",
+          "Lunch in West End village (1 hour, ~$10-15)",
+          "Walk the West End strip, browse shops (45 min)",
+          "Taxi back to Mahogany Bay (15 min — leave 45 min buffer)"
+        ]
+      }
+    ],
+    "tips": [
+      "Get off the ship as early as possible — the beach gets crowded by 10am on double-ship days.",
+      "Bring cash in small US bills. Most places accept USD but can't always break large bills.",
+      "Reef-safe sunscreen is required at West Bay Beach marine park areas.",
+      "The chairlift has a weight limit and can close in high winds. Have a backup plan.",
+      "Set an alarm on your phone for 1 hour before all-aboard. Taxis back can take longer than expected."
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "West Bay",
+    "slug": "west_bay",
+    "description": "Home to Roatán's most famous white-sand beach and upscale resorts. The main tourist destination with crystal-clear water and excellent snorkeling right off the beach.",
+    "vibe": "Premium beach resort area",
+    "bestFor": "Beaches, snorkeling, resort dining, families",
+    "latitude": 16.2940,
+    "longitude": -86.6180,
+    "zoomLevel": 15
+  },
+  {
+    "name": "West End",
+    "slug": "west_end",
+    "description": "A bohemian village and the dive capital of Roatán. Narrow streets lined with dive shops, hostels, bars, and restaurants. The most walkable area on the island.",
+    "vibe": "Bohemian dive/backpacker hub",
+    "bestFor": "Diving, nightlife, budget dining, hostels",
+    "latitude": 16.2985,
+    "longitude": -86.6110,
+    "zoomLevel": 15
+  },
+  {
+    "name": "Sandy Bay",
+    "slug": "sandy_bay",
+    "description": "A quiet residential area between West End and Coxen Hole. Home to the Roatán Institute for Marine Sciences and Carambola Botanical Gardens.",
+    "vibe": "Quiet residential",
+    "bestFor": "Institute for Marine Sciences, relaxation",
+    "latitude": 16.3150,
+    "longitude": -86.5850,
+    "zoomLevel": 14
+  },
+  {
+    "name": "Coxen Hole",
+    "slug": "coxen_hole",
+    "description": "The capital and commercial center of Roatán. Where locals shop, bank, and handle business. Home to the Town Center cruise port and main municipal market.",
+    "vibe": "Main town, commercial center",
+    "bestFor": "Shopping, banking, local food, port access",
+    "latitude": 16.3040,
+    "longitude": -86.5560,
+    "zoomLevel": 14
+  },
+  {
+    "name": "Flowers Bay",
+    "slug": "flowers_bay",
+    "description": "A local neighborhood near the airport. Less touristy with authentic island life and a few hidden restaurants frequented by residents.",
+    "vibe": "Airport adjacent",
+    "bestFor": "Convenience, local neighborhoods",
+    "latitude": 16.3200,
+    "longitude": -86.5400,
+    "zoomLevel": 14
+  },
+  {
+    "name": "French Harbour",
+    "slug": "french_harbour",
+    "description": "The commercial fishing hub of Roatán, known for the best seafood restaurants on the island. Home to the famous Arch's Iguana Farm and several marinas.",
+    "vibe": "Commercial/residential",
+    "bestFor": "Seafood restaurants, iguana farm, local life",
+    "latitude": 16.3350,
+    "longitude": -86.4600,
+    "zoomLevel": 14
+  },
+  {
+    "name": "Oak Ridge",
+    "slug": "oak_ridge",
+    "description": "A picturesque fishing village built over the water on the island's south shore. Traditional stilted homes, mangrove tours, and untouched Caribbean charm.",
+    "vibe": "Traditional fishing village",
+    "bestFor": "Authentic experience, boat tours, mangroves",
+    "latitude": 16.3670,
+    "longitude": -86.3690,
+    "zoomLevel": 14
+  },
+  {
+    "name": "Punta Gorda",
+    "slug": "punta_gorda",
+    "description": "The oldest settlement on Roatán and cultural heart of the Garifuna community. Experience traditional drumming, dance, and cassava bread-making.",
+    "vibe": "Garifuna cultural center",
+    "bestFor": "Cultural tours, traditional food, drumming",
+    "latitude": 16.3730,
+    "longitude": -86.3420,
+    "zoomLevel": 14
+  },
+  {
+    "name": "Port Royal",
+    "slug": "port_royal",
+    "description": "A remote area on the eastern tip steeped in pirate history. Site of an old English fort and archaeological ruins. Accessible by boat or rough road.",
+    "vibe": "Historical significance",
+    "bestFor": "Archaeology, history, remote exploration",
+    "latitude": 16.4050,
+    "longitude": -86.3200,
+    "zoomLevel": 13
+  },
+  {
+    "name": "Camp Bay",
+    "slug": "camp_bay",
+    "description": "The undeveloped eastern end of Roatán with pristine, empty beaches and dense jungle. A true off-the-beaten-path destination for adventurers.",
+    "vibe": "Remote and undeveloped",
+    "bestFor": "Untouched beaches, nature, solitude",
+    "latitude": 16.4200,
+    "longitude": -86.2900,
+    "zoomLevel": 13
+  }
+]
