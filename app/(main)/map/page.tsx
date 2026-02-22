@@ -73,7 +73,7 @@ function MapPageContent() {
     <div className="relative flex flex-col h-[calc(100vh-80px)] md:h-screen">
       {/* Category filter bar */}
       <div className="absolute top-3 left-3 right-3 z-10">
-        <div className="flex gap-1.5 overflow-x-auto pb-1 hide-scrollbar">
+        <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
           <button
             onClick={toggleAll}
             className={`flex-shrink-0 px-3 py-1.5 rounded-pill text-xs font-body font-medium transition-colors shadow-sm ${
